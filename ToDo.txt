@@ -1,0 +1,38 @@
+Bye Bye Trump
+
+Objective: Create single page create-react-app that will allow users to press a button that randomly picks a country on a map and animates a Donald Trump img to that location
+
+Basic
+ x Has map
+ - Text box instructing user to click 
+ - Has button that picks a random country onClick
+ - Map re-centers to selected country
+ - Text display "Trump Is Moving To [country]"
+
+Intermediate
+ - Trump icon starts in DC and is transported to selected country
+ - Sound clip of trump "I may have to leave the country"
+
+Advance
+ - Animate Trump icon
+ - Animate Flight Path
+ - Fun Facts about country?
+
+
+ Tasks
+
+  - Initialize app
+    x create-react-app
+    x Display Mapbox map
+      x look for npm packages
+      x install mapbox npm
+      x create Map component
+      x render something from component
+      x render Map
+        x install actual map packet and not services packet
+      x Map begins centered in DC
+    - Has button that re-centers map on random location
+      x convert center prop input to const
+      
+
+        
