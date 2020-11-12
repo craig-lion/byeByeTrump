@@ -1,7 +1,9 @@
 import "./App.css";
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
 import React, { useState } from "react";
 import axios from 'axios'
+import Mapbox from './Mapbox'
+
 
 const accessToken =
   "pk.eyJ1IjoiY3JhaWctbGlvbiIsImEiOiJja2hjMnZpYWowMWh2MnBvNWh3dGF3bzl0In0.AAjLlRZD1j7qH-nqWZ-3kg";
@@ -10,6 +12,7 @@ const Map = ReactMapboxGl({ accessToken });
 const MapboxClient = require("mapbox");
 const client = new MapboxClient(accessToken);
 const totalCities = 26562
+const zoom = [8]
 
 
 const App = () => {
@@ -33,17 +36,13 @@ const App = () => {
       .catch((err) => console.log(err));
   };
 
-  // const onClick = () => {
-  //   // alert("osnap");
-  //   getlngLat("Paris, France");
-  // };
 
   return (
     <div className="App">
       <button onClick={pickRandomCity}>
         If I lose I'll Be So Embarassed I May Have To Leave the Country
       </button>
-      <Map
+      {/* <Map
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
           height: "100vh",
@@ -53,12 +52,32 @@ const App = () => {
         zoom={[7]}
       >
         <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
-          <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+          <Feature coordinates={center} />
+          <Marker coordinates={center} anchor="bottom">
+            <img src={'/Users/lion/Desktop/ByeByeTrump/byebyetrump/public/dumbtrump1.jpeg'} />
+          </Marker>
         </Layer>
-      </Map>
-      ;
+      </Map> */}
+      <div id="mapContainer" />
+      <Mapbox />
     </div>
   );
+  // return (
+  // <Map
+  //   style="mapbox://styles/mapbox/streets-v8"
+  //   zoom={zoom}
+  //   containerStyle={{
+  //     height: "100wv",
+  //     width: "100wv"
+  //   }}>
+  //     <Layer
+  //       type="symbol"
+  //       id="marker"
+  //       layout={{ "icon-image": "marker-15" }}>
+  //       <Feature coordinates={[-0.481747846041145, 51.3233379650232]}/>
+  //     </Layer>
+  //   </Map>
+  // )
 };
 
 export default App;
